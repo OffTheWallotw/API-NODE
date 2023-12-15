@@ -11,7 +11,7 @@ PATCH /temas/2
 Content-Type: application/json
 
 {
-  "nombre": "Romance",
+  "nombre": "Romance"
 }
 
 Respuesta Exitosa (Código 200 OK)

@@ -11,7 +11,7 @@ PATCH /libros/2
 Content-Type: application/json
 
 {
-  "nombre": "Romance",
+  "titulo": "Romance"
 }
 
 Respuesta Exitosa (Código 200 OK)

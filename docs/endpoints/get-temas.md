@@ -4,13 +4,13 @@ Permite recuperar la lista de todos los temas registrados.
 
 ## Ejemplo de Solicitud
 ```http
-GET /api/temas
+GET /temas
 
 Respuesta Exitosa (Código 200 OK)
 [
   {
     "id-temas": 1,
-    "nombre": "Tema 1",
+    "nombre": "Tema 1"
   },
 ]
 
