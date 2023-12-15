@@ -1,40 +1,41 @@
 const { connectMysql } = require('../dbconnection');
-class TemasModel
+
+class EditorialesModel
 {
     static async consultar() {
         let db = await connectMysql();
-        let query = db('temas');
+        let query = db('editoriales');
         return await query;
     }
 
     static async consultarPorId(id) {
         let db = await connectMysql();
-        return await db('temas').where('id_tema', id);
+        return await db('editoriales').where('id_editorial', id);
     }
 
     static async insertar(datos) {
         let db = await connectMysql();
-        const result = await db('temas').insert(datos).returning('id_tema');
+        const result = await db('editoriales').insert(datos).returning('id_editorial');
         return result[0];
     }
 
     static async actualizar(id, campos) {
         let db = await connectMysql();
-        return await db('temas').where('id_tema', id).update(campos);
+        return await db('editoriales').where('id_editorial', id).update(campos);
     }
 
     static async reemplazar(id, newData) {
         let db = await connectMysql();
-        newData['id_tema'] = id;
-        await db('temas').where('id_tema', id).del();
-        await db.insert(newData).into('temas');
+        newData['id_editorial'] = id;
+        await db('editoriales').where('id_editorial', id).del();
+        await db.insert(newData).into('editoriales');
         return id;
     }
     
     static async eliminar(id) {
         let db = await connectMysql();
-        return await db('temas').where('id_tema', id).del();
+        return await db('editoriales').where('id_editorial', id).del();
     }
 }
 
-module.exports = TemasModel;
+module.exports = EditorialesModel;

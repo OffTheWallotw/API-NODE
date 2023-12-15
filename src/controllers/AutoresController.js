@@ -1,17 +1,17 @@
-const TemasModel = require('../models/TemasModel');
+const AutoresModel = require('../models/AutoresModel');
 
-class TemasController
+class Autoresontroller
 {
     /**
      * Recupera una colección de valores de un recurso:
      * 
      * ```http
-     *   GET /temas
+     *   GET /autores
      *   Accept: application/json
      * ```
      */
     static async indexGet(req, res) {
-        let data = await TemasModel.consultar();
+        let data = await AutoresModel.consultar();
         res.send(data);
     }
 
@@ -19,7 +19,7 @@ class TemasController
      * Recibe una petición para crear un recurso:
      * 
      * ```http
-     *   POST /temas
+     *   POST /autores
      *   Content-Type: application/json
      *
      *   {"nombre":"Nuevo tema"}
@@ -29,10 +29,10 @@ class TemasController
         try {
             const newData = req.body;
 
-            const insertedId = await TemasModel.insertar(newData);
+            const insertedId = await AutoresModel.insertar(newData);
 
             res.status(201)
-                .header('Location', `/temas/${insertedId}`)
+                .header('Location', `/autores/${insertedId}`)
                 .send({status: 201, message: 'Created'});
         } catch (error) {
             console.error(error);
@@ -44,13 +44,13 @@ class TemasController
      * Recupera el valor de un recurso individual:
      * 
      * ```http
-     *   GET /temas/{id}
+     *   GET /autores/{id}
      *   Accept: application/json
      * ```
      */
     static async itemGet(req, res) {
         let id = req.params.id;
-        let data = await TemasModel.consultarPorId(id);
+        let data = await AutoresModel.consultarPorId(id);
         if (data.length == 0) {
             res.status(404).send({errno: 404, error: 'Not found'});
             return;
@@ -62,7 +62,7 @@ class TemasController
      * Recibe un petición para sustituir/reemplazar un recurso:
      * 
      * ```http
-     *   PUT /temas/{id}
+     *   PUT /autores/{id}
      *   Content-Type: application/json
      *
      *   {"nombre":"Nombre del tema sustituto"}
@@ -77,7 +77,7 @@ class TemasController
             const id = req.params.id;
             const updatedData = req.body;
 
-            const result = await TemasModel.reemplazar(id, updatedData);
+            const result = await AutoresModel.reemplazar(id, updatedData);
 
             if (result === 0) {
                 res.status(404).send({ errno: 404, error: 'Not found' });
@@ -94,7 +94,7 @@ class TemasController
      * Recibe una petición para actualizar parte de un recurso:
      * 
      * ```http
-     *   PATCH /temas/{id}
+     *   PATCH /autores/{id}
      *   Content-Type: application/json
      * 
      *   {"nombre": "Nuevo nombre del tema"}
@@ -105,7 +105,7 @@ class TemasController
             const id = req.params.id;
             const updatedFields = req.body;
 
-            const result = await TemasModel.actualizar(id, updatedFields);
+            const result = await AutoresModel.actualizar(id, updatedFields);
 
             if (result === 0) {
                 res.status(404).send({ errno: 404, error: 'Not found' });
@@ -122,7 +122,7 @@ class TemasController
      * Elimina el valor de un recurso individual:
      * 
      * ```http
-     *   DELETE /temas/{id}
+     *   DELETE /autores/{id}
      *   Accept: application/json
      * ```
      */
@@ -130,8 +130,8 @@ class TemasController
         try {
             const id = req.params.id;
     
-            // Cambiar TemasModel.reemplazar por el método de eliminación correspondiente
-            const result = await TemasModel.eliminar(id);
+            // Cambiar AutoresModel.reemplazar por el método de eliminación correspondiente
+            const result = await AutoresModel.eliminar(id);
     
             if (result === 0) {
                 res.status(404).send({ errno: 404, error: 'Not found' });
@@ -146,4 +146,4 @@ class TemasController
     
 }
 
-module.exports = TemasController;
+module.exports = Autoresontroller;

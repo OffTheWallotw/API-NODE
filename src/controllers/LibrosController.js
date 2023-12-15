@@ -1,17 +1,17 @@
-const TemasModel = require('../models/TemasModel');
+const LibrosModel = require('../models/LibrosModel');
 
-class TemasController
+class LibrosController
 {
     /**
      * Recupera una colección de valores de un recurso:
      * 
      * ```http
-     *   GET /temas
+     *   GET /libros
      *   Accept: application/json
      * ```
      */
     static async indexGet(req, res) {
-        let data = await TemasModel.consultar();
+        let data = await LibrosModel.consultar();
         res.send(data);
     }
 
@@ -19,7 +19,7 @@ class TemasController
      * Recibe una petición para crear un recurso:
      * 
      * ```http
-     *   POST /temas
+     *   POST /libros
      *   Content-Type: application/json
      *
      *   {"nombre":"Nuevo tema"}
@@ -29,10 +29,10 @@ class TemasController
         try {
             const newData = req.body;
 
-            const insertedId = await TemasModel.insertar(newData);
+            const insertedId = await LibrosModel.insertar(newData);
 
             res.status(201)
-                .header('Location', `/temas/${insertedId}`)
+                .header('Location', `/libros/${insertedId}`)
                 .send({status: 201, message: 'Created'});
         } catch (error) {
             console.error(error);
@@ -44,13 +44,13 @@ class TemasController
      * Recupera el valor de un recurso individual:
      * 
      * ```http
-     *   GET /temas/{id}
+     *   GET /libros/{id}
      *   Accept: application/json
      * ```
      */
     static async itemGet(req, res) {
         let id = req.params.id;
-        let data = await TemasModel.consultarPorId(id);
+        let data = await LibrosModel.consultarPorId(id);
         if (data.length == 0) {
             res.status(404).send({errno: 404, error: 'Not found'});
             return;
@@ -62,7 +62,7 @@ class TemasController
      * Recibe un petición para sustituir/reemplazar un recurso:
      * 
      * ```http
-     *   PUT /temas/{id}
+     *   PUT /libros/{id}
      *   Content-Type: application/json
      *
      *   {"nombre":"Nombre del tema sustituto"}
@@ -77,7 +77,7 @@ class TemasController
             const id = req.params.id;
             const updatedData = req.body;
 
-            const result = await TemasModel.reemplazar(id, updatedData);
+            const result = await LibrosModel.reemplazar(id, updatedData);
 
             if (result === 0) {
                 res.status(404).send({ errno: 404, error: 'Not found' });
@@ -94,7 +94,7 @@ class TemasController
      * Recibe una petición para actualizar parte de un recurso:
      * 
      * ```http
-     *   PATCH /temas/{id}
+     *   PATCH /libros/{id}
      *   Content-Type: application/json
      * 
      *   {"nombre": "Nuevo nombre del tema"}
@@ -105,7 +105,7 @@ class TemasController
             const id = req.params.id;
             const updatedFields = req.body;
 
-            const result = await TemasModel.actualizar(id, updatedFields);
+            const result = await LibrosModel.actualizar(id, updatedFields);
 
             if (result === 0) {
                 res.status(404).send({ errno: 404, error: 'Not found' });
@@ -122,7 +122,7 @@ class TemasController
      * Elimina el valor de un recurso individual:
      * 
      * ```http
-     *   DELETE /temas/{id}
+     *   DELETE /libros/{id}
      *   Accept: application/json
      * ```
      */
@@ -130,8 +130,8 @@ class TemasController
         try {
             const id = req.params.id;
     
-            // Cambiar TemasModel.reemplazar por el método de eliminación correspondiente
-            const result = await TemasModel.eliminar(id);
+            // Cambiar LibrosModel.reemplazar por el método de eliminación correspondiente
+            const result = await LibrosModel.eliminar(id);
     
             if (result === 0) {
                 res.status(404).send({ errno: 404, error: 'Not found' });
@@ -146,4 +146,4 @@ class TemasController
     
 }
 
-module.exports = TemasController;
+module.exports = LibrosController;
