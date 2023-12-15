@@ -14,7 +14,7 @@ GET /editoriales/123
 ```json
 {
   "id_editorial": 123,
-  "nombre": "Programación",
+  "nombre": "Programación"
 }
 ```
 

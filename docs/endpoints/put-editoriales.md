@@ -11,7 +11,7 @@ PUT /editoriales/2
 Content-Type: application/json
 
 {
-  "nombre": "editorial 2",
+  "nombre": "editorial 2"
 }
 
 Respuesta Exitosa (Código 200 OK)
