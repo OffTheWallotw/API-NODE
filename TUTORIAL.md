@@ -62,11 +62,11 @@ docker-compose up -d
 Una vez que estén iniciados los servicios, ejecutar lo siguiente:
 
 ```sh
-docker exec -it node-rest-web-service-1 sh
+docker exec -it api-node-t-web-service-1 sh
 ```
 
 > **NOTA**  
-> El nombre del contenedor (`node-rest-web-service-1`) puede cambiar dependiendo
+> El nombre del contenedor (`api-node-t-web-service-1 sh`) puede cambiar dependiendo
 > del nombre que se le haya asignado al directorio del proyecto.
 
 Una vez accediendo a la terminal ejecutar lo siguiente, que creará el archivo

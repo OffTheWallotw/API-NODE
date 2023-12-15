@@ -11,7 +11,7 @@ app.use(express.json());
 app.get('/', function (req, res) {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.send('¡Prueba 123456789012!');
+    res.send('API NODE DE JUAN CARLOS AGUILAR LOPEZ');
 });
 
 //---------------------------------------------------------------

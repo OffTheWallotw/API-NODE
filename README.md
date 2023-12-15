@@ -1,12 +1,11 @@
-# API RESTful con Node.js
+# API NIDE con Node.js
 
-Proyecto de demostración para clases de desarrollo de APIs utilizando Node.js,
+Proyecto Con ENDPOINTS y clases de desarrollo de APIs utilizando Node.js,
 con implementación en contenedores de Docker.
 
 ## Tabla de contenido
 
-- [API RESTful con Node.js](#api-restful-con-nodejs)
-  - [Tabla de contenido](#tabla-de-contenido)
+- API NODE
   - [Requisitos de instalación](#requisitos-de-instalación)
   - [Instrucciones para la instalación](#instrucciones-para-la-instalación)
   - [Documentación detallada](#documentación-detallada)
@@ -23,13 +22,13 @@ Asegúrate de tener instalado y configurado Docker antes de comenzar.
 1. Clonar el repositorio en la máquina local:
    
    ```sh
-   git clone https://github.com/francerz/node-restful.git
+   git clone https://github.com/OffTheWallotw/API-NODE.git
    ```
 
 2. Navegar al directorio del proyecto:
    
    ```sh
-   cd node-restful
+   cd api-node
    ```
 
 3. Ejecutar el siguiente comando para iniciar los contenedores:
@@ -39,7 +38,6 @@ Asegúrate de tener instalado y configurado Docker antes de comenzar.
     ```
 
     > **IMPORTANTE**
-    >
     > Debe estar iniciado el Docker engine para ejecutar el comando anterior,
     > si no lo está, se devolverá un mensaje de error indicando que no se
     > encontró el docker daemon.
