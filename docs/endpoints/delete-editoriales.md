@@ -1,13 +1,13 @@
-# Endpoint: `DELETE /libros/{id}`
+# Endpoint: `DELETE /editoriales/{id}`
 
-Permite eliminar definitivamente un libro específico.
+Permite eliminar definitivamente un editorial específico.
 
 ## Parámetros de URL
-- `{id}` (obligatorio): Identificador único del libro que se desea eliminar.
+- `{id}` (obligatorio): Identificador único del editorial que se desea eliminar.
 
 ## Ejemplo de Solicitud
 ```http
-DELETE /libros/1
+DELETE /editoriales/1
 
 Respuesta Exitosa (Código 200 OK)
 {

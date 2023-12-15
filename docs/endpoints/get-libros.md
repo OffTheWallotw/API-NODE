@@ -4,7 +4,7 @@ Permite recuperar la lista de todos los libros registrados.
 
 ## Ejemplo de Solicitud
 ```http
-GET /api/libros
+GET /libros
 
 Respuesta Exitosa (Código 200 OK)
 [

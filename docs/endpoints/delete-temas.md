@@ -7,7 +7,7 @@ Permite eliminar definitivamente un tema específico.
 
 ## Ejemplo de Solicitud
 ```http
-DELETE /api/temas/1
+DELETE /temas/1
 
 Respuesta Exitosa (Código 200 OK)
 {
